@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo - al fares</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300,200' rel='stylesheet' type='text/css'>
+<link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+<link href="css/responsive.css" rel="stylesheet" media="screen" type="text/css"/>
+<link rel="stylesheet" href="sidr/stylesheets/jquery.sidr.dark.css">
+<script src="js/jquery.min.js"></script>
+<script src="sidr/jquery.sidr.min.js"></script>
+<script type="text/javascript" src="js/smoothscroll.js"></script>
+
+</head>
+
+<body>
+	<div class="header">
+    	<div class="container">
+    		<div class="logo-menu">
+        		<div class="logo">
+            		<h1><a href="#"><img src="images/maqconsulting-logo.png" style="width:200px;" /> </a></h1>
+            	</div>
+                <!--<a id="simple-menu" href="#sidr">Toggle menu</a>-->
+                <div id="mobile-header">
+<a class="responsive-menu-button" href="#"><img src="images/11.png"/></a>
+</div>
+            	<div class="menu" id="navigation">
+            		<ul>
+                    	<li><a href="#">Home</a></li>
+                        <li><a href="#desc">About Us</a></li>
+                        <li><a href="#stories">Services </a></li>
+                        <li><a href="#contact">Contact us</a></li>
+                    </ul>
+            	</div>
+        	</div>
+        </div>
+    </div>
+    
+    <div class="banner">
+    	<div class="container">
+        	<div class="header-text">
+            	
+                <h2>Welcome to MaqConsulting</h2>
+                <p class="big-text">Consultancy - Front-end development - Network support</p>
+                <p class="small-text">We care for our clients' business as our own and have become one of the leading IT strategy consulting firms in London.</p>
+  
+            </div>
+        </div>
+    </div>
+    
+    <div class="color-border">
+    </div>
+    
+    <div class="desc" id="desc">
+    	<div class="container">
+        	<h2>ABOUT US</h2>
+            <p>MaqConsulting excels at consultancy, front-end development, and Network support. We love taking on challenging projects that require full-on content strategy, thoughtful design, demanding development, and ongoing marketing. And we take your small problems seriously. Do you have a Network that is down or something that needs to be fixed? We take pride in providing fast, responsive turnaround times to your immediate needs. We take on projects both big and small, work with a diverse set of clients, and really enjoy hammering out problems and getting results. We can be your creative team or work to support your in-house employees. With a 100 % guarantee, we are here for the long haul.</p>
+        </div>
+    </div>
+    
+
+    
+    <div class="stories" id="stories">
+    	<div class="container">
+        	<h3 class="text-head">Services</h3>
+           
+        	<div class="stories-section">
+            	<ul>
+                	<li>
+                    	<a href="#">
+                    	<div class="story-img"><img src="images/story1.png"/></div>
+                        	<div class="story-box">
+                            	<h4>Advisory services</h4>
+                        		<p>We can provide ongoing advisory services to IT Managers and other key decision makers within your business, helping you to get a maximum return from your IT investment.</p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="#">
+                    	<div class="story-img"><img src="images/story2.png"/></div>
+                        	<div class="story-box">
+                            	<h4>Technology solutions</h4>
+                        		<p>We are happy to identify, recommend and source the best technology solutions for your individual IT projects. We also provide fully managed services to organisations that wish to outsource their IT project requirements.</p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="#">
+                    	<div class="story-img"><img src="images/story3.png"/></div>
+                        	<div class="story-box">
+                            	<h4>Strategy planning</h4>
+                        		<p>We can also help you to introduce a complex IT strategy road map that will meet your medium and long-term business goals and provide a business case to justify any IT investment costs.</p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   	
+    <div class="contact" id="contact">
+    	<div class="container">
+            <br>
+        	<h3 class="text-head">CONTACT US</h3><br>
+
+<div>
+<p class="box-desc" > <img src="images/location.png" alt="icon 1"> 17 Abbotsbury Road, Morden,London, SM4 5LJ
+</p>
+
+<p class="box-desc"> <img src="images/Phone.png" alt="icon 1"> 020 3137 2200</p>
+ 
+<p class="box-desc" > <img src="images/Email.png" alt="icon 1" > info@maqconsulting.co.uk</p>
+            
+            <br></div>
+
+
+            
+
+            <script>
+                jQuery(function ($) {
+                    $(document).ready(function () {
+
+
+                        // load google map
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+                                        'callback=initialize';
+                        document.body.appendChild(script);
+
+                    });
+                });
+
+
+
+
+                function initialize() {
+
+
+
+                  
+
+                    var contentString = '<ul><h1>MaqConsulting</h1> ' + '<br>'
+                            
+                                '17 Abbotsbury Road<br>Morden<br>London<br>SM4 5LJ</ul>';
+
+                    var myLatlng = new google.maps.LatLng(51.4026858,-0.1923082);
+                    var mapOptions = {
+                        zoom: 17,
+                        center: myLatlng
+                    };
+
+                    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+
+
+
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: 'Etiket'
+
+
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+
+                    google.maps.event.addDomListener(window, 'load', initialize);
+                    infowindow.open(map, marker);
+
+                }
+
+            </script>
+
+	
+
+           
+            <div id="map-canvas" style="height:300px;" class="contact-section">
+
+            </div>    <br >        
+            <!--<div class="contact-section">
+            		
+                		<form>
+                    		<input type="text" name="Name" placeholder="Name" />
+                        	<input type="email" name="email" placeholder="Email"/>
+                        	<textarea placeholder="Message" rows="6"></textarea>
+                        	<button type="submit" class="submit">Send Message</button>
+                   		</form>
+                	
+            	</div>
+        </div>-->
+    </div>
+    <div class="color-border">
+    </div>
+    <div class="footer">
+        	<div class="container">
+            	<br>
+            <ul class="socialmedia">
+                <li><a href="https://www.facebook.com/"><i class="icon-twitter"></i></a></li>
+                <li><a href="https://twitter.com/"><i class="icon-facebook"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/"><i class="icon-linkedin"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="icon-instagram"></i></a></li>
+            </ul>
+
+                <div class="infooter">
+                    <br>
+                <p class="copyright">Copyright &copy; MaqConsulting 2016<br> Designed by <a class="credit"href="http://www.evolutiontech.ae">Evolution Technologies</a></p>
+            	</div><br>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript">		
+			 $(document).ready(function() {
+				$('#simple-menu').sidr({
+				side: 'right'
+			});
+			});
+			$('.responsive-menu-button').sidr({
+				name: 'sidr-main',
+				source: '#navigation',
+				side: 'right'
+
+				});
+			$(document).ready(
+			function() {
+			$("html").niceScroll({cursorborder:"0px solid #fff",cursorwidth:"5px",scrollspeed:"70"});
+			}
+			);
+		</script>
+</body>
+</html>

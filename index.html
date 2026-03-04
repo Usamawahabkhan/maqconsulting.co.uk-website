@@ -1,19 +1,1181 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MaqConsulting</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300,200' rel='stylesheet' type='text/css'>
-<link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
-<link href="css/responsive.css" rel="stylesheet" media="screen" type="text/css"/>
-<link rel="stylesheet" href="sidr/stylesheets/jquery.sidr.dark.css">
-<script src="js/jquery.min.js"></script>
-<script src="sidr/jquery.sidr.min.js"></script>
-<script type="text/javascript" src="js/smoothscroll.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaqConsulting - Modern IT Solutions & Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --tertiary-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --accent: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 60px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,112C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            animation: wave 15s infinite linear;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero .big-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero .small-text {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card:nth-child(1) .service-icon { color: var(--primary-color); }
+        .service-card:nth-child(2) .service-icon { color: var(--secondary-color); }
+        .service-card:nth-child(3) .service-icon { color: var(--tertiary-color); }
+        .service-card:nth-child(4) .service-icon { color: var(--accent); }
+
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--text-light);
+        }
+
+        #map-canvas {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e3a8a 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .credit {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .credit:hover {
+            color: var(--secondary-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .big-text {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* UTILITY CLASSES */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="header">
+    	<div class="container">
+    		<div class="logo-menu">
+        		<div class="logo">
+            		<h1><a href="#"><img src="images/maqconsulting-logo.png" style="width:200px;" /> </a></h1>
+            	</div>
+                <!--<a id="simple-menu" href="#sidr">Toggle menu</a>-->
+                <div id="mobile-header">
+<a class="responsive-menu-button" href="#"><img src="images/11.png"/></a>
+</div>
+            	<div class="menu" id="navigation">
+            		<ul>
+                    	<li><a href="#">Home</a></li>
+                        <li><a href="#desc">About Us</a></li>
+                        <li><a href="#stories">Services </a></li>
+                          <li><a href="secure-collection.html">SECURE COLLECTION </a></li>                                   
+                            
+                        <li><a href="partnership.html">Partnership</a></li>
+                        <li><a href="#contact">Contact us</a></li>
+                    </ul>
+            	</div>
+        	</div>
+        </div>
+    </div>
+    
+    <div class="banner">
+    	<div class="container">
+        	<div class="header-text">
+            	
+                <h2>Welcome to MaqConsulting</h2>
+                <p class="big-text">Consultancy - Front-end development - Network support</p>
+                <p class="small-text">We care for our clients' business as our own and have become one of the leading IT strategy consulting firms in London.</p>
+  
+            </div>
+        </div>
+    </div>
+    
+    <div class="color-border">
+    </div>
+    
+    <div class="desc" id="desc">
+    	<div class="container">
+        	<h2>ABOUT US</h2>
+            <p>MaqConsulting excels at consultancy, front-end development, and Network support. We love taking on challenging projects that require full-on content strategy, thoughtful design, demanding development, and ongoing marketing. And we take your small problems seriously. Do you have a Network that is down or something that needs to be fixed? We take pride in providing fast, responsive turnaround times to your immediate needs. We take on projects both big and small, work with a diverse set of clients, and really enjoy hammering out problems and getting results. We can be your creative team or work to support your in-house employees. With a 100 % guarantee, we are here for the long haul.</p>
+        </div>
+    </div>
+    
+
+    
+    <div class="stories" id="stories">
+    	<div class="container">
+        	<h3 class="text-head">Services</h3>
+           
+        	<div class="stories-section">
+            	<ul>
+                	<li>
+                    	<a href="#">
+                    	<div class="story-img"><img src="images/story1.png"/></div>
+                        	<div class="story-box">
+                            	<h4>Advisory services</h4>
+                        		<p>We can provide ongoing advisory services to IT Managers and other key decision makers within your business, helping you to get a maximum return from your IT investment.</p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="#">
+                    	<div class="story-img"><img src="images/story2.png"/></div>
+                        	<div class="story-box">
+                            	<h4>Technology solutions</h4>
+                        		<p>We are happy to identify, recommend and source the best technology solutions for your individual IT projects. We also provide fully managed services to organisations that wish to outsource their IT project requirements.</p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="#">
+                    	<div class="story-img"><img src="images/story3.png"/></div>
+                        	<div class="story-box">
+                            	<h4>Strategy planning</h4>
+                        		<p>We can also help you to introduce a complex IT strategy road map that will meet your medium and long-term business goals and provide a business case to justify any IT investment costs.</p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                    
+                                        
+                     <li>
+                    	<a href="secure-collection.html">
+                    	<div class="story-img"><img src="images/story4.jpg"/></div>
+                        	<div class="story-box">
+                            	<h4>SECURE IT DISPOSAL COLLECTION</h4>
+                        		<p>MAQ Consulting Ltd have their own fleet of secure vehicles to undertake customer collections. We also have a dedicated logistics partner, enabling us to collect IT from anywhere in the UK at the best possible rates; without compromising the risks associated with transporting redundant IT Equipment. Our dedicated collection services, ensures the transport for our customer’s equipment is handled to the highest levels. </p>
+                        		
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+   	
+    <div class="contact" id="contact">
+    	<div class="container">
+            <br>
+        	<h3 class="text-head">CONTACT US</h3><br>
+
+<div>
+<p class="box-desc" > <img src="images/location.png" alt="icon 1"> Peel House, 34- 44 London Road, Morden, England, SM4 5BT
+</p>
+
+<p class="box-desc"> <img src="images/phone.png" alt="icon 1"> 020 3886 3063</p>
+ 
+<p class="box-desc" > <img src="images/email.png" alt="icon 1" > info@maqconsulting.co.uk</p>
+            
+            <br></div>
+
+
+            
+
+            <script>
+                jQuery(function ($) {
+                    $(document).ready(function () {
+
+
+                        // load google map
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+                                        'callback=initialize';
+                        document.body.appendChild(script);
+
+                    });
+                });
+
+
+
+
+                function initialize() {
+
+
+
+                  
+
+                    var contentString = '<ul><h1>MaqConsulting</h1> ' + '<br>'
+                            
+                                '17 Abbotsbury Road<br>Morden<br>London<br>SM4 5LJ</ul>';
+
+                    var myLatlng = new google.maps.LatLng(51.4024202,-0.1934731);
+                    var mapOptions = {
+                        zoom: 17,
+                        center: myLatlng
+                    };
+
+                    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+
+
+
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: 'Etiket'
+
+
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+
+                    google.maps.event.addDomListener(window, 'load', initialize);
+                    infowindow.open(map, marker);
+
+                }
+
+            </script>
+
+	
+
+           
+            <div id="map-canvas" style="height:300px;" class="contact-section">
+
+            </div>    <br >        
+            <!--<div class="contact-section">
+            		
+                		<form>
+                    		<input type="text" name="Name" placeholder="Name" />
+                        	<input type="email" name="email" placeholder="Email"/>
+                        	<textarea placeholder="Message" rows="6"></textarea>
+                        	<button type="submit" class="submit">Send Message</button>
+                   		</form>
+                	
+            	</div>
+        </div>-->
+    </div>
+    <div class="color-border">
+    </div>
+    <div class="footer">
+        	<div class="container">
+            	<br>
+            <ul class="socialmedia">
+                <li><a href="https://www.facebook.com/"><i class="icon-twitter"></i></a></li>
+                <li><a href="https://twitter.com/"><i class="icon-facebook"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/"><i class="icon-linkedin"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="icon-instagram"></i></a></li>
+            </ul>
+
+                <div class="infooter">
+                    <br>
+                <p class="copyright">Copyright &copy; MaqConsulting 2019<br> Designed by <a class="credit"href="http://www.evolutiontech.ae">Evolution Technologies</a></p>
+            	</div><br>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript">		
+			 $(document).ready(function() {
+				$('#simple-menu').sidr({
+				side: 'right'
+			});
+			});
+			$('.responsive-menu-button').sidr({
+				name: 'sidr-main',
+				source: '#navigation',
+				side: 'right'
+
+				});
+			$(document).ready(
+			function() {
+			$("html").niceScroll({cursorborder:"0px solid #fff",cursorwidth:"5px",scrollspeed:"70"});
+			}
+			);
+		</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaqConsulting - Modern IT Solutions & Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #ec4899;
+            --tertiary-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --accent: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 60px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,112C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            animation: wave 15s infinite linear;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero .big-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero .small-text {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card:nth-child(1) .service-icon { color: var(--primary-color); }
+        .service-card:nth-child(2) .service-icon { color: var(--secondary-color); }
+        .service-card:nth-child(3) .service-icon { color: var(--tertiary-color); }
+        .service-card:nth-child(4) .service-icon { color: var(--accent); }
+
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--text-light);
+        }
+
+        #map-canvas {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e3a8a 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .credit {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .credit:hover {
+            color: var(--secondary-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .big-text {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* UTILITY CLASSES */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 <body>
